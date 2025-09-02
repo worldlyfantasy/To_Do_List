@@ -115,9 +115,8 @@ body {
 
 .todo-form {
   display: flex;
-  margin-left: 30px;
-  margin-right: 30px;
-  margin-bottom: 30px;
+  justify-content: center;
+  margin: 30px auto 30px auto;
   border-radius: 25px;
   padding: 3px;
   background: rgba(255, 255, 255, 0.1);
@@ -129,10 +128,11 @@ body {
   border: none;
   outline: none;
   width: 60%;
-  height: 50px;
+  height: 60px;
+  line-height: 60px;
   border-radius: 20px 0 0 20px;
   padding-left: 15px;
-  font-size: 16px;
+  font-size: 18px;
   border: 1px solid rgba(30, 144, 255, 0.6);
   transition: all 0.3s ease;
   background: rgba(255, 255, 255, 0.2);
@@ -146,15 +146,20 @@ body {
 }
 
 .todo-button{
+  display: flex;
+  justify-content: center; /* 水平居中 */
+  align-items: center;     /* 垂直居中 */
+
   cursor: pointer;
   user-select: none;
+
   color: white;
   width: 100px;
-  height: 52px;
+  height: 62px;
   border: 1px solid rgba(30, 144, 255, 0.6);
   border-radius: 0 20px 20px 0;
   text-align: center;
-  line-height: 52px;
+
   background: linear-gradient(to right, #1e90ff, #8a2be2);
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
@@ -170,7 +175,9 @@ body {
 }
 
 .todo-list {
-  margin: 0 30px;
+  margin: 0 auto;
+  width: 67%;
+
 }
 
 .todo-item {
