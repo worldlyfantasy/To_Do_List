@@ -38,52 +38,49 @@
   </div>
 </template>
 
-<script>
+<script setup lang="ts">
 import { ref, reactive } from 'vue'
 
-export default {
-  name: 'TodoApp',
-  
-  setup() {
-    const newTodo = ref('')
-    const todos = reactive([])
-    let nextId = 1
+interface Todo {
+  id: number
+  text: string
+  deleted: boolean
+}
 
-    function addTodo () {
-      const text = newTodo.value
-      if (text === '') {
-        alert('请输入待办事项内容！')
-        return
-      }
-      todos.push({
-        id: nextId++,
-        text: text,
-        deleted: false
-      })
-      newTodo.value = ''
-    }
+const newTodo = ref<string>('')
+const todos = reactive<Todo[]>([])
+let nextId = 1
 
-    function deleteTodo (index) {
-      const todo = todos[index]
-      if (todo.deleted) return
-      // 添加删除线效果
-      todo.deleted = true
-      // 3秒后完全移除元素
-      setTimeout(() => {
-        const todoIndex = todos.findIndex(t => t.id === todo.id)
-        if (todoIndex > -1) {
-          todos.splice(todoIndex, 1)
-        }
-      }, 3000)
-    }
-
-    return {
-      newTodo,
-      todos,
-      addTodo,
-      deleteTodo
-    }
+function addTodo(): void {
+  const text = newTodo.value.trim()
+  if (text === '') {
+    alert('请输入待办事项内容！')
+    return
   }
+  
+  todos.push({
+    id: nextId++,
+    text: text,
+    deleted: false
+  })
+  
+  newTodo.value = ''
+}
+
+function deleteTodo(index: number): void {
+  const todo = todos[index]
+  if (todo.deleted) return
+  
+  // 添加删除线效果
+  todo.deleted = true
+  
+  // 3秒后完全移除元素
+  setTimeout(() => {
+    const todoIndex = todos.findIndex((t: Todo) => t.id === todo.id)
+    if (todoIndex > -1) {
+      todos.splice(todoIndex, 1)
+    }
+  }, 3000)
 }
 </script>
 

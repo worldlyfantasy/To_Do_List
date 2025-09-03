@@ -1,6 +1,6 @@
-# Vue Todo App
+# Vue Todo App (TypeScript)
 
-一个使用Vue 3构建的待办事项应用，具有玻璃质感设计。
+一个使用Vue 3 + TypeScript构建的待办事项应用，具有玻璃质感设计。
 
 ## 功能特性
 
@@ -9,16 +9,17 @@
 - ✅ 玻璃质感UI设计
 - ✅ 响应式数据绑定
 - ✅ 现代化Vue 3 Composition API
+- ✅ 完整的TypeScript类型支持
 
 ## 技术栈
 
 - Vue 3
+- TypeScript
 - Vite
 - CSS3 (Glassmorphism)
 
 ## 安装和运行
 
-### 方式一：Vue开发服务器（推荐）
 1. 安装依赖：
 ```bash
 npm install
@@ -34,8 +35,10 @@ npm run dev
 npm run build
 ```
 
-### 方式二：Live Server预览
-直接用Live Server打开 `simple-version.html` 文件即可预览。
+4. 类型检查：
+```bash
+npm run type-check
+```
 
 ## 项目结构
 
@@ -43,10 +46,12 @@ npm run build
 frontendpractice/
 ├── index.html              # Vue应用入口
 ├── package.json            # 项目配置
+├── tsconfig.json           # TypeScript配置
 ├── vite.config.js          # Vite配置
+├── env.d.ts                # 环境类型声明
 ├── src/
-│   ├── main.js             # Vue应用入口
-│   └── App.vue             # 主组件（包含所有样式和逻辑）
+│   ├── main.ts             # Vue应用入口（TypeScript）
+│   └── App.vue             # 主组件（TypeScript）
 └── README.md               # 项目说明
 ```
 
@@ -57,8 +62,10 @@ frontendpractice/
 3. 点击"删除"按钮删除待办事项
 4. 删除后会显示删除线效果，3秒后自动移除
 
-## 文件说明
+## TypeScript特性
 
-- `App.vue`: 包含所有Vue组件逻辑和样式
-- `simple-version.html`: 纯HTML版本，可直接用Live Server预览
-- `index.html`: Vue应用的入口文件
+- 完整的类型定义
+- 接口定义（Todo接口）
+- 函数返回类型声明
+- 严格的类型检查
+- 更好的IDE支持和代码提示
